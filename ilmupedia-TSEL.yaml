@@ -57,12 +57,12 @@ proxies:
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: id1vpn.jagoanip.my.id
+    servername: "id1vpn.jagoanip.my.id"
     network: ws
     ws-opts:
       path: /vmess
       headers:
-        Host: id1vpn.jagoanip.my.id
+        Host: "id1vpn.jagoanip.my.id"
     udp: true
   - name: SINGAPORE 1
     type: vmess
