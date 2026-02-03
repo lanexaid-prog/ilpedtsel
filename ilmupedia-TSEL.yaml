@@ -1,0 +1,144 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: ""
+bind-address: "*"
+unified-delay: true
+profile:
+  store-selected: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 8.8.8.8
+    - 1.0.0.1
+    - https://dns.google/dns-query
+  fallback:
+    - 1.1.1.1
+    - 8.8.4.4
+    - https://cloudflare-dns.com/dns-query
+    - 112.215.203.254
+  default-nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+    - 112.215.203.254
+proxies:
+  - name: INDO 1
+    server: 104.18.2.2
+    port: 443
+    type: vmess
+    uuid: c69b02eb-5695-4cb2-8dca-976ee35c6d58
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: "samudra.basecampsedekahbumi.my.id"
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: "samudra.basecampsedekahbumi.my.id"
+    udp: true
+  - name: SINGAPORE 1
+    type: vmess
+    server: 104.18.2.2
+    port: 443
+    uuid: df3a76df-a43d-4363-b779-778cb738db8e
+    alterId: 0
+    cipher: auto
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: sg1vpn.jagoanip.my.id
+    tls: true
+    servername: sg1vpn.jagoanip.my.id
+  - name: SINGAPORE 2
+    type: trojan
+    server: 104.18.2.2
+    port: 443
+    password: 370971d8-1afa-4d80-906d-b1e5c8752308
+    sni: sg1vpn.jagoanip.my.id
+    skip-cert-verify: true
+    udp: true
+    network: ws
+    ws-opts:
+      path: /trojan
+      headers:
+        Host: sg1vpn.jagoanip.my.id
+    tls: true
+    servername: sg1vpn.jagoanip.my.id
+proxy-groups:
+  - name: AKUN
+    type: select
+    proxies:
+      - INDO 1
+      - SINGAPORE 1
+      - SINGAPORE 2
+      
+  - name: IKLAN
+    type: select
+    proxies:
+      - REJECT
+
+  - name: GAME
+    type: select
+    proxies:
+      - AKUN
+      - DIRECT
+
+rules:
+ - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+ - RULE-SET,Block,IKLAN
+ - RULE-SET,Game,GAME
+ - RULE-SET,Umum,AKUN
+ - RULE-SET,Sosmed,AKUN
+ - RULE-SET,Streaming,AKUN
+ - RULE-SET,Tiktok,AKUN
+ - RULE-SET,Meta,AKUN
+ - RULE-SET,PortGame,GAME
+ - MATCH,AKUN
+
+rule-providers:
+  Game:
+    type: file
+    behavior: classical
+    path: ./game.yaml 
+  PortGame:
+    type: file
+    behavior: classical
+    path: ./portgame.yaml
+  Umum:
+    type: file
+    behavior: classical
+    path: ./umum.yaml 
+  Sosmed:
+    type: file
+    behavior: classical
+    path: ./sosmed.yaml
+  Streaming:
+    type: file
+    behavior: classical
+    path: ./streaming.yaml
+  Tiktok:
+    type: file
+    behavior: domain
+    path: ./tiktok.yaml
+  Meta:
+    type: file
+    behavior: domain
+    path: ./meta.yaml
+  Block:
+    type: file
+    behavior: domain
+    path: ./block.yaml
