@@ -78,11 +78,11 @@ proxies:
         Host: id2vpn.jagoanip.my.id
     tls: true
     servername: id2vpn.jagoanip.my.id
-  - name: SINGAPORE 1
+  - name: INDO 4
     type: vmess
     server: 104.18.2.2
     port: 443
-    uuid: df3a76df-a43d-4363-b779-778cb738db8e
+    uuid: a2caabfd-9f62-4495-8cc2-ce63e5499dae
     alterId: 0
     cipher: auto
     skip-cert-verify: true
@@ -90,10 +90,10 @@ proxies:
     ws-opts:
       path: /vmess
       headers:
-        Host: sg1vpn.jagoanip.my.id
+        Host: id1vpn.jagoanip.my.id
     tls: true
-    servername: sg1vpn.jagoanip.my.id
-  - name: SINGAPORE 2
+    servername: id1vpn.jagoanip.my.id
+  - name: SINGAPORE 1
     type: trojan
     server: 104.18.2.2
     port: 443
@@ -115,8 +115,8 @@ proxy-groups:
       - INDO 1
       - INDO 2
       - INDO 3
+      - INDO 4
       - SINGAPORE 1
-      - SINGAPORE 2
       
   - name: IKLAN
     type: select
