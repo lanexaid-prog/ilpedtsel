@@ -62,12 +62,28 @@ proxies:
         Host: id1vpn.jagoanip.my.id
     tls: true
     servername: id1vpn.jagoanip.my.id
+  - name: INDO 3
+    type: vmess
+    server: 104.18.2.2
+    port: 443
+    uuid: 27691b98-21a5-4fef-b3f0-7fd1849031d0
+    alterId: 0
+    cipher: auto
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: id2vpn.jagoanip.my.id
+    tls: true
+    servername: id2vpn.jagoanip.my.id
 proxy-groups:
   - name: AKUN
     type: select
     proxies:
       - INDO 1
       - INDO 2
+      - INDO 3
       
   - name: IKLAN
     type: select
