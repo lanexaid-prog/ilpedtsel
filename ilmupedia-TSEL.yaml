@@ -93,21 +93,6 @@ proxies:
         Host: id1vpn.jagoanip.my.id
     tls: true
     servername: id1vpn.jagoanip.my.id
-  - name: SINGAPORE 1
-    type: trojan
-    server: 104.18.2.2
-    port: 443
-    password: 370971d8-1afa-4d80-906d-b1e5c8752308
-    sni: sg1vpn.jagoanip.my.id
-    skip-cert-verify: true
-    udp: true
-    network: ws
-    ws-opts:
-      path: /trojan
-      headers:
-        Host: sg1vpn.jagoanip.my.id
-    tls: true
-    servername: sg1vpn.jagoanip.my.id
 proxy-groups:
   - name: AKUN
     type: select
@@ -116,7 +101,6 @@ proxy-groups:
       - INDO 2
       - INDO 3
       - INDO 4
-      - SINGAPORE 1
       
   - name: IKLAN
     type: select
