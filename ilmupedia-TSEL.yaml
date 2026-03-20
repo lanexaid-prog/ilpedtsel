@@ -36,13 +36,13 @@ proxies:
     type: vmess
     server: 104.18.2.2
     port: 443
-    uuid: 9924bc3f-3bce-4f8a-acca-710baf48b102
+    uuid: f7c8b1b3-3825-4ea6-adcd-c043c6f6ffed
     alterId: 0
     cipher: auto
     skip-cert-verify: true
     network: ws
     ws-opts:
-      path: /vmess
+      path: /xrayvws
       headers:
         Host: ped.lanexaid.my.id
     tls: true
