@@ -36,17 +36,17 @@ proxies:
     type: vmess
     server: 104.18.2.2
     port: 443
-    uuid: f7c8b1b3-3825-4ea6-adcd-c043c6f6ffed
+    uuid: a2caabfd-9f62-4495-8cc2-ce63e5499dae
     alterId: 0
     cipher: auto
     skip-cert-verify: true
     network: ws
     ws-opts:
-      path: /xrayvws
+      path: /vmess
       headers:
-        Host: ped.lanexaid.my.id
+        Host: id1vpn.jagoanip.my.id
     tls: true
-    servername: ped.lanexaid.my.id
+    servername: id1vpn.jagoanip.my.id
 proxy-groups:
   - name: AKUN
     type: select
