@@ -32,7 +32,7 @@ dns:
     - 1.1.1.1
     - 112.215.203.254
 proxies:
-  - name: INDONESIA THR
+  - name: INDO THR 1
     type: vmess
     server: 104.18.2.2
     port: 443
@@ -47,11 +47,27 @@ proxies:
         Host: id1vpn.jagoanip.my.id
     tls: true
     servername: id1vpn.jagoanip.my.id
+  - name: INDO THR 2
+    type: vmess
+    server: 104.18.2.2
+    port: 443
+    uuid: f7c8b1b3-3825-4ea6-adcd-c043c6f6ffed
+    alterId: 0
+    cipher: auto
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /xrayvws
+      headers:
+        Host: ped.sohib.my.id
+    tls: true
+    servername: ped.sohib.my.id
 proxy-groups:
   - name: AKUN
     type: select
     proxies:
-      - INDONESIA THR
+      - INDO THR 1
+      - INDO THR 2
       
   - name: IKLAN
     type: select
