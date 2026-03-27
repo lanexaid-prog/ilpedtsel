@@ -59,9 +59,9 @@ proxies:
     ws-opts:
       path: /xrayvws
       headers:
-        Host: ped.sohib.my.id
+        Host: lanexaid.my.id
     tls: true
-    servername: ped.sohib.my.id
+    servername: lanexaid.my.id
 proxy-groups:
   - name: AKUN
     type: select
