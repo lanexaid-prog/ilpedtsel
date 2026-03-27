@@ -36,17 +36,17 @@ proxies:
     type: vmess
     server: 104.18.2.2
     port: 443
-    uuid: a2caabfd-9f62-4495-8cc2-ce63e5499dae
+    uuid: f7c8b1b3-3825-4ea6-adcd-c043c6f6ffed
     alterId: 0
     cipher: auto
     skip-cert-verify: true
     network: ws
     ws-opts:
-      path: /vmess
+      path: /xrayvws
       headers:
-        Host: id1vpn.jagoanip.my.id
+        Host: lanexaid.my.id
     tls: true
-    servername: id1vpn.jagoanip.my.id
+    servername: lanexaid.my.id
   - name: INDO THR 2
     type: vmess
     server: 104.18.2.2
